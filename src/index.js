@@ -1,13 +1,14 @@
 import './style.css';
-import './to-do-list.png';
 import './add.svg';
+import './github-icon.svg';
 
-const BarCheck = () => {
-    if (window.innerWidth >= 900) {
-        // console.log('hi');
-    }
-};
+// const BarCheck = () => {
+//     if (window.innerWidth >= 900) {
+//         // console.log('hi');
+//     } else {
+//     }
+// };
 
-BarCheck();
+// BarCheck();
 
 // window.addEventListener('resize', BarCheck);
