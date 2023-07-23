@@ -163,22 +163,38 @@ header > img {
 
 /* Sidebar styling */
 
+header > a {
+    height: 48px;
+    width: 48px;
+}
+.github {
+    height: 48px;
+    width: 48px;
+}
+
+.github:hover {
+    transition: 0.5s;
+    transform: rotate(360deg);
+}
+
 a {
     text-decoration: none;
     color: inherit;
 }
 
 .sidebar {
+    visibility: hidden;
     background: #e5e5e5;
     padding: 20px;
     font-size: 1.5em;
     display: flex;
     flex-direction: column;
-    /* gap: 30px; */
-    width: 200px;
+    width: 250px;
+    transform: translateX(-3000px);
+    transition: 1.5s;
+    box-sizing: border-box;
 }
-
-.sidebar > ul {
+3 .sidebar > ul {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -252,4 +268,11 @@ a {
     stroke-dasharray: 90 207;
     stroke-dashoffset: -134;
     stroke-width: 6;
+}
+
+.sb-active {
+    transition: 0.5s;
+    visibility: visible;
+    left: 0;
+    transform: translateX(0px);
 }
