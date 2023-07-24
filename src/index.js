@@ -2,11 +2,12 @@ import './style.css';
 import './add.svg';
 import './github-icon.svg';
 
+// Sidebar animations
 (() => {
     const sidebar = document.querySelector('.sidebar');
-    const sidettl = document.querySelector('.proj-title');
+    const sidettl = document.querySelector('.sidebar > p');
     const menu = document.querySelector('.menu');
-
+    const lis = document.querySelectorAll('.projects > li');
     const MenuAnimation = () => {
         menu.classList.toggle('opened');
         menu.setAttribute('aria-expanded', menu.classList.contains('opened'));
@@ -16,10 +17,8 @@ import './github-icon.svg';
         if (window.innerWidth >= 900) {
             if (sidebar.hasAttribute('style')) {
                 sidebar.removeAttribute('style');
-            }
-
-            if (sidettl.hasAttribute('style')) {
                 sidettl.removeAttribute('style');
+                lis.forEach((li) => li.removeAttribute('style'));
             }
 
             if (!sidebar.classList.contains('sb-active')) {
@@ -31,12 +30,14 @@ import './github-icon.svg';
                 sidebar.classList.toggle('sb-active');
                 MenuAnimation();
             }
-
-            sidettl.style['justify-content'] = 'center';
+            lis.forEach((li) => {
+                // eslint-disable-next-line no-param-reassign
+                li.style['margin-left'] = '0px';
+            });
+            sidettl.style['align-self'] = 'center';
             sidebar.style.width = '100%';
             sidebar.style.textAlign = 'center';
             sidebar.style['font-size'] = '2em';
-            sidebar.style.gap = '20px';
         }
     };
 

@@ -9,8 +9,7 @@
     <body>
         <header>
             <button
-                class="menu opened"
-                aria-expanded="true"
+                class="menu"
                 onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))"
                 aria-label="Main Menu"
             >
@@ -35,22 +34,17 @@
                 />
             </a>
         </header>
-        <div class="sidebar sb-active">
+        <div class="sidebar">
             <ul>
                 <li><a href="">Home</a></li>
                 <li><a href="">Today</a></li>
                 <li><a href="">Week</a></li>
             </ul>
             <div class="gap"></div>
-            <div class="proj-title">
-                <p>Projects</p>
-                <button>
-                    <img src="./bdcacaa3d5c71c5c0039.svg" alt="add new" />
-                </button>
-            </div>
+            <p>Projects</p>
             <ul class="projects">
                 <li>stuff</li>
-                <li>stuff</li>
+                <button>+ New Project</button>
             </ul>
         </div>
     </body>
