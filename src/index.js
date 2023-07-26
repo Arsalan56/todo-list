@@ -8,6 +8,9 @@ import './github-icon.svg';
     const sidettl = document.querySelector('.sidebar > p');
     const menu = document.querySelector('.menu');
     const lis = document.querySelectorAll('.projects > li');
+    const newproj = document.querySelector('.newproj');
+    const main = document.querySelector('.formcover');
+
     const MenuAnimation = () => {
         menu.classList.toggle('opened');
         menu.setAttribute('aria-expanded', menu.classList.contains('opened'));

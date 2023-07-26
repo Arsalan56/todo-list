@@ -131,6 +131,8 @@ table {
 /* CSS Reset End */
 
 body {
+    --color: #4361ee;
+
     cursor: default;
     height: 100%;
     min-height: 100vh;
@@ -142,11 +144,14 @@ body {
         'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+body > div {
+    display: flex;
+}
 /* Header styling */
 
 header {
     display: flex;
-    background: #4361ee;
+    background: var(--color);
     font-size: 3em;
     padding: 20px;
     align-items: center;
@@ -187,8 +192,9 @@ a {
 }
 
 .sidebar {
+    --grey: #e5e5e5;
     visibility: hidden;
-    background: #e5e5e5;
+    background: var(--grey);
     padding: 20px;
     font-size: 1.5em;
     display: flex;
@@ -197,6 +203,8 @@ a {
     transform: translateX(-3000px);
     transition: 1.5s;
     box-sizing: border-box;
+    position: absolute;
+    height: calc(100% - 90px);
 }
 .sidebar > ul {
     display: flex;
@@ -226,14 +234,21 @@ a {
     font-size: 0.9em;
 }
 
-.sidebar button:first-of-type {
+.newproj {
     background: none;
     border: 0px;
     padding: 0px;
-    margin-top: 5px;
     font-size: 0.9em;
     text-align: inherit;
     border-radius: 999px;
+    padding: 5px 10px;
+    margin-left: -10px;
+}
+
+.newproj:hover {
+    transition: 0.3s;
+    background: var(--color);
+    color: var(--grey);
 }
 
 .menu {
@@ -283,4 +298,12 @@ a {
     visibility: visible;
     left: 0;
     transform: translateX(0px);
+}
+
+/* Main styling */
+
+.main {
+    display: absolute;
+    width: 100%;
+    border: 1px solid red;
 }
