@@ -1,6 +1,7 @@
 import './style.css';
 import './add.svg';
 import './github-icon.svg';
+import './close.svg';
 
 // Sidebar animations
 (() => {
@@ -9,7 +10,8 @@ import './github-icon.svg';
     const menu = document.querySelector('.menu');
     const lis = document.querySelectorAll('.projects > li');
     const newproj = document.querySelector('.newproj');
-    const main = document.querySelector('.formcover');
+    const cover = document.querySelector('.cover');
+    const close = document.querySelector('.form-cont > img');
 
     const MenuAnimation = () => {
         menu.classList.toggle('opened');
@@ -49,5 +51,11 @@ import './github-icon.svg';
 
     menu.addEventListener('click', () => {
         sidebar.classList.toggle('sb-active');
+    });
+    newproj.addEventListener('click', () => {
+        cover.style.visibility = 'visible';
+    });
+    close.addEventListener('click', () => {
+        cover.style.visibility = 'hidden';
     });
 })();
