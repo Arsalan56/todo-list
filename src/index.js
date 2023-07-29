@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import './style.css';
 import './add.svg';
 import './github-icon.svg';
@@ -24,6 +25,8 @@ import './close.svg';
                 sidebar.removeAttribute('style');
                 sidettl.removeAttribute('style');
                 lis.forEach((li) => li.removeAttribute('style'));
+                const items = document.querySelectorAll('.cont > div');
+                items.forEach((item) => item.removeAttribute('style'));
             }
 
             if (!sidebar.classList.contains('sb-active')) {
@@ -36,13 +39,16 @@ import './close.svg';
                 MenuAnimation();
             }
             lis.forEach((li) => {
-                // eslint-disable-next-line no-param-reassign
                 li.style['margin-left'] = '0px';
             });
             sidettl.style['align-self'] = 'center';
             sidebar.style.width = '100%';
             sidebar.style.textAlign = 'center';
             sidebar.style['font-size'] = '2em';
+            const items = document.querySelectorAll('.cont > div');
+            items.forEach((item) => {
+                item.style.width = '100%';
+            });
         }
     };
 
