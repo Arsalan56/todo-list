@@ -308,8 +308,6 @@ a {
     width: 100%;
 }
 
-/* Form styling */
-
 .cover {
     position: fixed;
     top: 0;
@@ -324,32 +322,6 @@ a {
     backdrop-filter: blur(4px);
     visibility: hidden;
 }
-
-.form-cont {
-    padding: 20px;
-    box-sizing: border-box;
-    background: white;
-    width: 70%;
-    height: 500px;
-    display: grid;
-    grid-template-columns: 1fr min-content;
-    box-shadow: 2px 2px 20px;
-    border-radius: 25px;
-}
-
-.form-cont > img {
-    cursor: pointer;
-}
-
-.form-cont > form {
-    display: flex;
-
-    flex-direction: column;
-    border: 2px solid red;
-    align-content: center;
-}
-
-/* Main styling */
 
 .cont {
     --color-2: #0353a4;
@@ -369,11 +341,14 @@ a {
     transition: 0.3s;
     padding: 0px 5px;
     border-bottom: 2px solid var(--color-2);
+    cursor: pointer;
+    box-sizing: border-box;
 }
 
 .item > input {
     width: 16px;
     margin: 0px;
+    cursor: pointer;
 }
 
 .item > img {
@@ -396,7 +371,7 @@ a {
     padding-bottom: 2px;
 }
 
-.cont button {
+.cont > .newtask > button {
     background: none;
     border: 0px;
     display: flex;
@@ -405,12 +380,49 @@ a {
     gap: 10px;
     width: 100%;
     justify-content: center;
+    cursor: pointer;
 }
 
-.cont > div:last-of-type {
+.cont > .newtask {
     display: flex;
     align-items: center;
     justify-content: center;
     border-bottom: none;
     padding-top: 2px;
+}
+
+.cont > .form-cont {
+    margin-top: 10px;
+    height: min-content;
+    border: 0px;
+    box-shadow: 2px 2px 10px;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15px;
+    box-sizing: border-box;
+    cursor: default;
+}
+
+.form-cont {
+    background: none;
+    border: 0px;
+}
+
+textarea {
+    border: none;
+    overflow: auto;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    resize: none;
+    font-family: inherit;
+    font-size: 1em;
+}
+
+.input-desc {
+    font-size: 0.8em;
 }
