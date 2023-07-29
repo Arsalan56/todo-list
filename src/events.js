@@ -6,21 +6,19 @@ export default (() => {
     const menu = document.querySelector('.menu');
     const lis = document.querySelectorAll('.projects > li');
     const newproj = document.querySelector('.newproj');
-    const cover = document.querySelector('.cover');
-
+    const cont = document.querySelector('.cont');
     const MenuAnimation = () => {
         menu.classList.toggle('opened');
         menu.setAttribute('aria-expanded', menu.classList.contains('opened'));
     };
 
     const BarCheck = () => {
-        const items = document.querySelectorAll('.cont > div');
         if (window.innerWidth >= 900) {
             if (sidebar.hasAttribute('style')) {
                 sidebar.removeAttribute('style');
                 sidettl.removeAttribute('style');
                 lis.forEach((li) => li.removeAttribute('style'));
-                items.forEach((item) => item.removeAttribute('style'));
+                cont.removeAttribute('style');
             }
 
             if (!sidebar.classList.contains('sb-active')) {
@@ -39,9 +37,7 @@ export default (() => {
             sidebar.style.width = '100%';
             sidebar.style.textAlign = 'center';
             sidebar.style['font-size'] = '2em';
-            items.forEach((item) => {
-                item.style.width = '100%';
-            });
+            cont.style.width = '100%';
         }
     };
 
@@ -50,16 +46,12 @@ export default (() => {
 
     menu.addEventListener('click', () => {
         sidebar.classList.toggle('sb-active');
-        const items = document.querySelectorAll('.cont > div');
+        // const items = document.querySelectorAll('.cont > div');
         if (window.innerWidth >= 900) {
             if (!sidebar.classList.contains('sb-active')) {
-                items.forEach((item) => {
-                    item.style.width = '100%';
-                });
+                cont.style.width = '100%';
             } else if (sidebar.classList.contains('sb-active')) {
-                items.forEach((item) => {
-                    item.removeAttribute('style');
-                });
+                cont.removeAttribute('style');
             }
         }
     });
