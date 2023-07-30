@@ -81,11 +81,37 @@
                             ></textarea>
                             <div class="priority">
                                 Priority:
-                                <button class="prio-low">Low</button>
-                                <button class="prio-mid">Medium</button>
-                                <button class="prio-high">High</button>
+                                <label>
+                                    <input
+                                        type="radio"
+                                        class="prio-low"
+                                        name="prio"
+                                    />
+                                    Low
+                                </label>
+                                <label>
+                                    <input
+                                        type="radio"
+                                        class="prio-mid"
+                                        name="prio"
+                                    />
+                                    Medium
+                                </label>
+                                <label>
+                                    <input
+                                        type="radio"
+                                        class="prio-high"
+                                        name="prio"
+                                    />
+                                    High
+                                </label>
                             </div>
-                            <div>Due Folder</div>
+                            <div>
+                                <label
+                                    >Due:
+                                    <input type="date" />
+                                </label>
+                            </div>
                             <button type="submit">submit</button>
                         </form>
                     </div>
