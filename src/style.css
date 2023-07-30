@@ -413,6 +413,7 @@ a {
     align-self: center;
     flex-direction: column;
     gap: 0px;
+    visibility: hidden;
 }
 
 .form-cont > form {
@@ -493,6 +494,7 @@ input[type='date'] {
     justify-content: space-between;
     background: var(--color);
     border-radius: 20px 20px 0px 0px;
+    margin-bottom: 5px;
 }
 
 .form-cont > div:first-of-type > img {

@@ -7,6 +7,9 @@ export default (() => {
     const lis = document.querySelectorAll('.projects > li');
     const newproj = document.querySelector('.newproj');
     const cont = document.querySelector('.cont');
+    const newtask = document.querySelector('.newtask > button');
+    const form = document.querySelector('.form-cont');
+
     const MenuAnimation = () => {
         menu.classList.toggle('opened');
         menu.setAttribute('aria-expanded', menu.classList.contains('opened'));
@@ -46,7 +49,6 @@ export default (() => {
 
     menu.addEventListener('click', () => {
         sidebar.classList.toggle('sb-active');
-        // const items = document.querySelectorAll('.cont > div');
         if (window.innerWidth >= 900) {
             if (!sidebar.classList.contains('sb-active')) {
                 cont.style.width = '100%';
@@ -57,5 +59,10 @@ export default (() => {
     });
     newproj.addEventListener('click', () => {
         console.log('new proj');
+    });
+    newtask.addEventListener('click', () => {
+        newtask.parentNode.style.visibility = 'hidden';
+        newtask.parentNode.style.position = 'absolute';
+        form.style.visibility = 'visible';
     });
 })();
