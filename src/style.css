@@ -410,14 +410,11 @@ a {
     align-self: center;
 }
 
-.form-cont > form > * {
-    /* border: 1px solid black; */
-}
-
 .form-cont > form {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    gap: 5px;
 }
 
 textarea {
@@ -443,15 +440,27 @@ textarea {
 .priority {
     display: flex;
     gap: 5vw;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
-.priority > button {
-    flex-grow: 1;
-    height: 25px;
-    background: var(--color);
+.priority > label {
+    font-size: 16px;
+    cursor: pointer;
+}
 
+input[type='date'] {
     border: 0px;
-    border-radius: 20px;
-    color: white;
+    font-family: inherit;
+
+    border: none;
+    overflow: auto;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    resize: none;
+    font-family: inherit;
+    font-size: 1em;
 }
