@@ -12,6 +12,7 @@ export default function GetForm(list) {
             newtask.parentNode.removeAttribute('style');
             form.classList.toggle('visible');
         } else {
+            // Throw error in placeholder when title is empty
             title.setAttribute('placeholder', 'TITLE REQUIRED!');
             if (!title.classList.contains('error')) {
                 title.classList.add('error');
