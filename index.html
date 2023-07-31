@@ -77,7 +77,7 @@
                                 name="title"
                                 class="input-ttl"
                                 rows="1"
-                                placeholder="Title"
+                                placeholder="TITLE"
                             ></textarea>
                             <textarea
                                 name="desc"
@@ -117,8 +117,14 @@
                                     >Due:
                                     <input type="date" />
                                 </label>
+                                <select name="Projects" class="proj-drop">
+                                    <option value="none" disabled selected>
+                                        Project
+                                    </option>
+                                    <option value="0">None</option>
+                                </select>
                             </div>
-                            <button type="submit">Add Task</button>
+                            <button type="button">Add Task</button>
                         </form>
                     </div>
                 </div>
