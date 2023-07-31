@@ -377,6 +377,7 @@ a {
     justify-content: center;
     font-size: 1.5em;
     padding-bottom: 2px;
+    cursor: default;
 }
 
 .cont > .newtask > button {
@@ -414,8 +415,14 @@ a {
     flex-direction: column;
     gap: 0px;
     visibility: hidden;
+    opacity: 0%;
 }
 
+.cont > .visible {
+    visibility: visible;
+    transition: 0.4s;
+    opacity: 100%;
+}
 .form-cont > form {
     display: flex;
     flex-direction: column;
@@ -500,4 +507,9 @@ input[type='date'] {
 .form-cont > div:first-of-type > img {
     height: 20px;
     width: 20px;
+    cursor: pointer;
+}
+
+.error::placeholder {
+    color: red;
 }

@@ -9,6 +9,8 @@ export default (() => {
     const cont = document.querySelector('.cont');
     const newtask = document.querySelector('.newtask > button');
     const form = document.querySelector('.form-cont');
+    const exit = document.querySelector('.form-cont > div:first-of-type > img');
+    const title = document.querySelector('.input-ttl');
 
     const MenuAnimation = () => {
         menu.classList.toggle('opened');
@@ -63,6 +65,12 @@ export default (() => {
     newtask.addEventListener('click', () => {
         newtask.parentNode.style.visibility = 'hidden';
         newtask.parentNode.style.position = 'absolute';
-        form.style.visibility = 'visible';
+        form.classList.toggle('visible');
+    });
+    exit.addEventListener('click', () => {
+        newtask.parentNode.removeAttribute('style');
+        form.classList.toggle('visible');
+        title.classList.remove('error');
+        title.setAttribute('placeholder', 'TITLE');
     });
 })();
