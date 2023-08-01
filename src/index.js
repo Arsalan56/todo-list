@@ -7,4 +7,9 @@ import './close.svg';
 import './close-white.svg';
 
 const list = [];
-GetForm(list);
+
+const submit = document.querySelector('.form-cont button');
+submit.addEventListener('click', () => {
+    GetForm(list);
+    console.log(list);
+});
