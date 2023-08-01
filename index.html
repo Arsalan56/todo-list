@@ -44,10 +44,7 @@
                 <div class="gap"></div>
                 <p>Projects</p>
                 <ul class="projects">
-                    <li>stuff</li>
-                    <div>
-                        <button class="newproj">+ New Project</button>
-                    </div>
+                    <!-- <li>stuff</li> -->
                 </ul>
             </div>
             <div class="main">
@@ -90,31 +87,34 @@
                                 <label>
                                     <input
                                         type="radio"
-                                        class="prio-low"
+                                        class="prio-low prio"
                                         name="prio"
+                                        value="L"
                                     />
                                     Low
                                 </label>
                                 <label>
                                     <input
                                         type="radio"
-                                        class="prio-mid"
+                                        class="prio-mid prio"
                                         name="prio"
+                                        value="M"
                                     />
                                     Medium
                                 </label>
                                 <label>
                                     <input
                                         type="radio"
-                                        class="prio-high"
+                                        class="prio-high prio"
                                         name="prio"
+                                        value="H"
                                     />
                                     High
                                 </label>
                             </div>
                             <label class="ctr"
                                 >Due:
-                                <input type="date" />
+                                <input type="date" class="due-input" />
                             </label>
                             <label class="ctr"
                                 >Project:
