@@ -6,4 +6,5 @@ import './github-icon.svg';
 import './close.svg';
 import './close-white.svg';
 
-GetForm();
+const list = [];
+GetForm(list);

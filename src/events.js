@@ -5,7 +5,6 @@ export default (() => {
     const sidettl = document.querySelector('.sidebar > p');
     const menu = document.querySelector('.menu');
     const lis = document.querySelectorAll('.projects > li');
-    const newproj = document.querySelector('.newproj');
     const cont = document.querySelector('.cont');
     const newtask = document.querySelector('.newtask > button');
     const form = document.querySelector('.form-cont');
@@ -58,9 +57,6 @@ export default (() => {
                 cont.removeAttribute('style');
             }
         }
-    });
-    newproj.addEventListener('click', () => {
-        console.log('new proj');
     });
     newtask.addEventListener('click', () => {
         newtask.parentNode.style.visibility = 'hidden';
