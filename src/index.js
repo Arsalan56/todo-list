@@ -1,5 +1,6 @@
 import './events';
 import GetForm from './form';
+import Display from './display';
 import './style.css';
 import './add.svg';
 import './github-icon.svg';
@@ -11,5 +12,6 @@ const list = [];
 const submit = document.querySelector('.form-cont button');
 submit.addEventListener('click', () => {
     GetForm(list);
-    console.log(list);
+    // console.log(list);
+    Display(list);
 });
