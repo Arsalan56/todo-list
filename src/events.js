@@ -68,5 +68,16 @@ export default (() => {
         form.classList.toggle('visible');
         title.classList.remove('error');
         title.setAttribute('placeholder', 'TITLE');
+
+        // Reset inputs when done
+        const rmv1 = document.querySelector('.input-desc');
+        const rmv2 = document.querySelector('.prio:checked');
+        const rmv3 = document.querySelector('.due-input');
+        const rmv4 = document.querySelector('.proj');
+        title.value = '';
+        rmv1.value = '';
+        if (rmv2) rmv2.checked = false;
+        rmv3.value = '';
+        rmv4.value = '';
     });
 })();
