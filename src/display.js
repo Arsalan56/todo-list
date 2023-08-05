@@ -18,7 +18,7 @@ export default function Display(list) {
     }
     item.setAttribute('class', 'item');
     del.setAttribute('src', '9e963c8ceba7ebf6ced7.svg');
-    del.setAttribute('data', last.length - 1);
+    del.setAttribute('data', list.length - 1);
     cb.setAttribute('type', 'checkbox');
 
     cont.insertBefore(item, document.querySelector('.newtask'));

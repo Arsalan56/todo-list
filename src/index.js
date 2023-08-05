@@ -1,6 +1,7 @@
 import './events';
 import GetForm from './form';
 import Display from './display';
+import Events from './event';
 import './style.css';
 import './add.svg';
 import './github-icon.svg';
@@ -24,6 +25,7 @@ submit.addEventListener('click', () => {
 
         GetForm(list);
         Display(list);
+        Events(list);
     } else {
         // Throw error in placeholder when title is empty
         title.setAttribute('placeholder', 'TITLE REQUIRED!');
