@@ -21,6 +21,7 @@ submit.addEventListener('click', () => {
         title.setAttribute('placeholder', 'TITLE');
         newtask.parentNode.removeAttribute('style');
         form.classList.toggle('visible');
+
         GetForm(list);
         Display(list);
     } else {

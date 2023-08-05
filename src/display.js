@@ -5,6 +5,7 @@ export default function Display(list) {
     const item = document.createElement('div');
     const cb = document.createElement('input');
     const ttl = document.createElement('p');
+    const duecont = document.createElement('div');
     const due = document.createElement('p');
     const del = document.createElement('img');
 
@@ -23,6 +24,7 @@ export default function Display(list) {
     cont.insertBefore(item, document.querySelector('.newtask'));
     item.appendChild(cb);
     item.appendChild(ttl);
-    item.appendChild(due);
+    item.appendChild(duecont);
+    duecont.appendChild(due);
     item.appendChild(del);
 }

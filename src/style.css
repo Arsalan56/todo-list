@@ -137,13 +137,12 @@ body {
     height: 100%;
     min-height: 100vh;
     width: 100vw;
-    min-width: 200px;
+    min-width: 500px;
     font-size: 16px;
     display: grid;
     grid-template: min-content / 1fr;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
         'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    overflow: hidden;
 }
 
 body > div {
@@ -342,7 +341,7 @@ a {
 
 .cont > div {
     display: grid;
-    grid-template: 1fr / min-content 2fr 1fr min-content;
+    grid-template: 1fr / min-content 1fr min-content min-content;
     gap: 30px;
     height: 30px;
     font-size: 20px;
@@ -365,15 +364,20 @@ a {
     overflow-x: hidden;
 }
 
-.item > p {
+.item p {
     display: flex;
     align-items: center;
-    overflow-x: hidden;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
-/* .item > p:last-of-type {
-    justify-self: end;
-} */
+.item > div:first-of-type {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
 .cont > div:first-of-type {
     display: flex;
     align-items: center;
