@@ -311,21 +311,6 @@ a {
     flex-direction: column;
 }
 
-.cover {
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.3);
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(4px);
-    visibility: hidden;
-}
-
 .cont {
     --color-2: #0353a4;
     display: flex;
@@ -537,4 +522,46 @@ input[type='date'] {
     border-bottom: 2px solid var(--color-2);
     width: 150px;
     text-align: center;
+}
+
+.cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+    /* visibility: hidden; */
+}
+
+.cover > .info-cont {
+    background: white;
+    display: flex;
+    width: clamp(300px, 70%, 700px);
+    height: 500px;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    flex-direction: column;
+    font-size: 1.2em;
+    gap: 20px;
+}
+
+.details {
+    background: var(--color);
+    margin: -20px;
+    margin-bottom: 0px;
+    border-radius: 20px 20px 0px 0px;
+    height: 40px;
+    padding: 20px 15px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    color: white;
+    justify-content: space-between;
 }

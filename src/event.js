@@ -6,4 +6,7 @@ export default function Events(list) {
         cont.removeChild(del.parentNode);
         list.splice(index, 1);
     });
+
+    const item = del.parentNode;
+    item.addEventListener('click', () => {});
 }
