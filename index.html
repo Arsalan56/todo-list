@@ -68,12 +68,14 @@
                                 name="title"
                                 class="input-ttl"
                                 rows="1"
+                                maxlength="50"
                                 placeholder="TITLE"
                             ></textarea>
                             <textarea
                                 name="desc"
                                 class="input-desc"
                                 rows="5"
+                                maxlength="250"
                                 placeholder="Description"
                             ></textarea>
                             <div class="priority">
@@ -129,13 +131,17 @@
             <div class="info-cont">
                 <div class="details">
                     <p>Details</p>
-                    <img src="98c5631191ba5853b9ee.svg" alt="" />
+                    <img
+                        src="98c5631191ba5853b9ee.svg"
+                        alt="close"
+                        class="dt-close"
+                    />
                 </div>
-                <p>title</p>
-                <p>description</p>
-                <p>priority</p>
-                <p>Duedate</p>
-                <p>Project</p>
+                <p class="dt-ttl">title</p>
+                <p class="dt-desc">description</p>
+                <p class="dt-prio">priority</p>
+                <p class="dt-due">Duedate</p>
+                <p class="dt-proj">Project</p>
             </div>
         </div>
     </body>
