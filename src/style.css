@@ -536,7 +536,7 @@ input[type='date'] {
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(4px);
-    /* visibility: hidden; */
+    visibility: hidden;
 }
 
 .cover > .info-cont {
@@ -564,4 +564,8 @@ input[type='date'] {
     align-items: center;
     color: white;
     justify-content: space-between;
+}
+
+.dt-close {
+    cursor: pointer;
 }

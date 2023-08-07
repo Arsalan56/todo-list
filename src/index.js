@@ -1,7 +1,7 @@
 import './events';
 import GetForm from './form';
 import Display from './display';
-import Events from './event';
+import Events from './task-evnt';
 import './style.css';
 import './add.svg';
 import './github-icon.svg';

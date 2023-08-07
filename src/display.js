@@ -20,6 +20,7 @@ export default function Display(list) {
     del.setAttribute('src', '9e963c8ceba7ebf6ced7.svg');
     del.setAttribute('data', list.length - 1);
     cb.setAttribute('type', 'checkbox');
+    cb.classList.add('cb');
 
     cont.insertBefore(item, document.querySelector('.newtask'));
     item.appendChild(cb);
