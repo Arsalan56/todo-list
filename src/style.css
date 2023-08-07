@@ -569,3 +569,13 @@ input[type='date'] {
 .dt-close {
     cursor: pointer;
 }
+
+.dt-ttl {
+    font-size: 1.2em;
+}
+
+.dt-desc {
+    margin-top: -15px;
+    font-size: 0.9em;
+    color: rgb(32, 32, 32);
+}
