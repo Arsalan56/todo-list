@@ -20,7 +20,7 @@ submit.addEventListener('click', () => {
     // Check if title input is given
     if (title.value !== '') {
         title.classList.remove('error');
-        title.setAttribute('placeholder', 'TITLE');
+        title.setAttribute('placeholder', 'Title');
         newtask.parentNode.removeAttribute('style');
         form.classList.toggle('visible');
 

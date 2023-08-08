@@ -70,7 +70,7 @@
                                 class="input-ttl"
                                 rows="1"
                                 maxlength="50"
-                                placeholder="TITLE"
+                                placeholder="Title"
                             ></textarea>
                             <textarea
                                 name="desc"
@@ -156,7 +156,64 @@
                         class="edt-close"
                     />
                 </div>
-                Yooooo
+                <form>
+                    <textarea
+                        name="title"
+                        class="edit-ttl"
+                        rows="1"
+                        maxlength="50"
+                        placeholder="Title"
+                    ></textarea>
+                    <textarea
+                        name="desc"
+                        class="edit-desc"
+                        rows="5"
+                        maxlength="250"
+                        placeholder="Description"
+                    ></textarea>
+                    <div class="priority">
+                        Priority:
+                        <label>
+                            <input
+                                type="radio"
+                                class="prio-low edit-prio"
+                                name="prio"
+                                value="Low"
+                            />
+                            Low
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                class="prio-mid edit-prio"
+                                name="prio"
+                                value="Medium"
+                            />
+                            Medium
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                class="prio-high edit-prio"
+                                name="prio"
+                                value="High"
+                            />
+                            High
+                        </label>
+                    </div>
+                    <label class="full"
+                        >Due:
+                        <input type="date" class="edit-due" />
+                    </label>
+                    <label class="full"
+                        >Project:
+                        <input
+                            class="edit-proj"
+                            type="text"
+                            placeholder="None"
+                        />
+                    </label>
+                </form>
             </div>
         </div>
     </body>

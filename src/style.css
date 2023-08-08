@@ -514,7 +514,8 @@ input[type='date'] {
     color: red;
 }
 
-.proj {
+.proj,
+.edit-proj {
     border: 0px;
     font-family: inherit;
 
@@ -614,11 +615,27 @@ input[type='date'] {
     margin-top: 4px;
 }
 
-.nowrap {
-    display: flex;
-    flex-wrap: nowrap;
-}
+/* Edit page styling */
 
 .full {
     display: flex;
+    align-items: center;
+}
+
+.edit-cover > div > form {
+    margin-top: -15px;
+}
+
+.full:last-of-type {
+    flex-direction: row;
+}
+
+.edit-cover > div > form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.edit-proj {
+    border-bottom: 2px solid var(--color);
 }
