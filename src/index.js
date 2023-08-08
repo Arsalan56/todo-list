@@ -7,6 +7,7 @@ import './add.svg';
 import './github-icon.svg';
 import './close.svg';
 import './close-white.svg';
+import './edit.svg';
 
 const list = [];
 

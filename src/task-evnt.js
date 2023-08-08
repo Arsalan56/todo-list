@@ -11,6 +11,10 @@ export default function Events(list) {
     const due = document.querySelector('.dt-due');
     const proj = document.querySelector('.dt-proj');
     const dtls = document.querySelector('.info-cont');
+    const cbcont = document.querySelector(`img[data='${index}']`).parentNode;
+    const edit = document.querySelectorAll('.edit')[index];
+
+    console.log(edit);
 
     del.addEventListener('click', (e) => {
         const ind = del.getAttribute('data');
@@ -19,13 +23,10 @@ export default function Events(list) {
         e.stopPropagation();
     });
 
+    // Make checkbox clearly show a task is completed
     checkbox.addEventListener('click', (e) => {
-        if (checkbox.checked) {
-            const taskwrds = document.querySelector('.item:last-of-type p');
-            console.log(taskwrds);
-        } else {
-            console.log('un');
-        }
+        cbcont.classList.toggle('done');
+
         e.stopPropagation();
     });
 
@@ -60,4 +61,6 @@ export default function Events(list) {
     cover.addEventListener('click', () => {
         cover.style.visibility = 'hidden';
     });
+
+    // edit.addEventListener('click', () => {});
 }

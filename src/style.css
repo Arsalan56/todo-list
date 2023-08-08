@@ -331,7 +331,7 @@ a {
 
 .cont > div {
     display: grid;
-    grid-template: 1fr / min-content 1fr min-content min-content;
+    grid-template: 1fr / min-content 1fr repeat(3, min-content);
     gap: 30px;
     height: 30px;
     font-size: 20px;
@@ -589,4 +589,33 @@ input[type='date'] {
 
 .item p {
     text-decoration: none;
+}
+
+.item.done p {
+    text-decoration: line-through;
+    color: grey;
+}
+
+.cont > .edit {
+    height: min-content;
+    border: 0px;
+    box-shadow: 2px 2px 10px;
+    border-radius: 20px;
+    display: flex;
+    padding: 15px;
+    box-sizing: border-box;
+    cursor: default;
+    align-self: center;
+    flex-direction: column;
+    gap: 0px;
+    margin-top: 4px;
+}
+
+.nowrap {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.full {
+    display: flex;
 }

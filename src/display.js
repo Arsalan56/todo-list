@@ -8,6 +8,7 @@ export default function Display(list) {
     const duecont = document.createElement('div');
     const due = document.createElement('p');
     const del = document.createElement('img');
+    const edit = document.createElement('img');
 
     ttl.textContent = last.ttl;
     if (last.due) {
@@ -21,11 +22,14 @@ export default function Display(list) {
     del.setAttribute('data', list.length - 1);
     cb.setAttribute('type', 'checkbox');
     cb.classList.add('cb');
+    edit.setAttribute('src', 'dd6093dd83b2b6ed2da6.svg');
+    edit.classList.add('edit');
 
     cont.insertBefore(item, document.querySelector('.newtask'));
     item.appendChild(cb);
     item.appendChild(ttl);
     item.appendChild(duecont);
     duecont.appendChild(due);
+    item.appendChild(edit);
     item.appendChild(del);
 }
