@@ -13,9 +13,9 @@ export default function Events(list) {
     const dtls = document.querySelector('.info-cont');
     const cbcont = document.querySelector(`img[data='${index}']`).parentNode;
     const edit = document.querySelectorAll('.edit')[index];
-
-    console.log(edit);
-
+    const edtcover = document.querySelector('.edit-cover');
+    const edtcont = document.querySelector('.edit-cover > div');
+    const edtclose = document.querySelector('.edt-close');
     del.addEventListener('click', (e) => {
         const ind = del.getAttribute('data');
         cont.removeChild(del.parentNode);
@@ -62,5 +62,17 @@ export default function Events(list) {
         cover.style.visibility = 'hidden';
     });
 
-    // edit.addEventListener('click', () => {});
+    edit.addEventListener('click', (e) => {
+        edtcover.style.visibility = 'visible';
+        e.stopPropagation();
+    });
+    edtcover.addEventListener('click', () => {
+        edtcover.style.visibility = 'hidden';
+    });
+    edtcont.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+    edtclose.addEventListener('click', () => {
+        edtcover.style.visibility = 'hidden';
+    });
 }

@@ -532,7 +532,8 @@ input[type='date'] {
     text-align: center;
 }
 
-.cover {
+.cover,
+.edit-cover {
     position: fixed;
     top: 0;
     left: 0;
@@ -547,7 +548,8 @@ input[type='date'] {
     visibility: hidden;
 }
 
-.cover > .info-cont {
+.cover > .info-cont,
+.edit-cover > div {
     background: white;
     display: flex;
     width: clamp(300px, 70%, 700px);
@@ -575,7 +577,8 @@ input[type='date'] {
     justify-content: space-between;
 }
 
-.dt-close {
+.dt-close,
+.edt-close {
     cursor: pointer;
 }
 
