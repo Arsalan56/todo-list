@@ -60,7 +60,7 @@ export default (() => {
     });
     newtask.addEventListener('click', () => {
         newtask.parentNode.style.visibility = 'hidden';
-        newtask.parentNode.style.position = 'absolute';
+        // newtask.parentNode.style.position = 'absolute';
         form.classList.toggle('visible');
     });
     exit.addEventListener('click', () => {

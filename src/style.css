@@ -137,7 +137,6 @@ body {
     height: 100%;
     min-height: 100vh;
     width: 100vw;
-    min-width: 500px;
     font-size: 16px;
     display: grid;
     grid-template: min-content / 1fr;
@@ -326,7 +325,7 @@ a {
     align-self: flex-end;
     box-sizing: border-box;
     transition: 0.3s;
-    height: 91vh;
+    height: calc(100vh - 70px);
     overflow: scroll;
 }
 
@@ -414,12 +413,15 @@ a {
     gap: 0px;
     visibility: hidden;
     opacity: 0%;
+    margin-top: -18px;
+    position: absolute;
 }
 
 .cont > .visible {
     visibility: visible;
     transition: 0.4s;
     opacity: 100%;
+    position: relative;
 }
 .form-cont > form {
     display: flex;
