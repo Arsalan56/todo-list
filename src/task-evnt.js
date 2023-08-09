@@ -23,6 +23,8 @@ export default function Events(list) {
     const prio2 = document.querySelectorAll('.edit-prio');
     const due2 = document.querySelector('.edit-due');
     const proj2 = document.querySelector('.edit-proj');
+    const screenttl = document.querySelectorAll('.item > p')[index];
+    const screendate = document.querySelectorAll('.item > div > p')[index];
 
     del.addEventListener('click', (e) => {
         const ind = del.getAttribute('data');
@@ -80,7 +82,6 @@ export default function Events(list) {
         prio2.value = !last.prio ? '' : last.prio;
         prio2.forEach((pr) => {
             if (pr.value === last.prio) {
-                console.log(pr.value);
                 // eslint-disable-next-line no-param-reassign
                 pr.checked = true;
             }
@@ -105,8 +106,6 @@ export default function Events(list) {
             ttl2.classList.remove('error');
             ttl2.setAttribute('placeholder', 'Title');
             edtcover.style.visibility = 'hidden';
-
-            console.log(last);
             last.ttl = ttl2.value;
             last.desc = desc2.value ? desc2.value : false;
             const checkedprio =
@@ -115,8 +114,13 @@ export default function Events(list) {
             last.due = due2.value ? due2.value : false;
             last.proj = proj2.value ? proj2.value : false;
 
-            console.log(last);
-            console.log(list);
+            screenttl.textContent = last.ttl;
+            if (last.due) {
+                const dates = last.due.split('-');
+                screendate.textContent = `${dates[1]}/${dates[2]}/${dates[0]}`;
+            } else {
+                due.textContent = 'No Due';
+            }
         } else {
             // Throw error in placeholder when title is empty
             ttl2.setAttribute('placeholder', 'TITLE REQUIRED!');
