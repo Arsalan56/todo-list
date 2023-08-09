@@ -104,14 +104,24 @@ export default function Events(list) {
         if (ttl2.value !== '') {
             ttl2.classList.remove('error');
             ttl2.setAttribute('placeholder', 'Title');
-            edtcover.style.visibilty = 'hidden';
+            edtcover.style.visibility = 'hidden';
 
-            // const last = last;
+            console.log(last);
+            last.ttl = ttl2.value;
+            last.desc = desc2.value ? desc2.value : false;
+            const checkedprio =
+                document.querySelector('.edit-prio:checked') || false;
+            last.prio = checkedprio.value || false;
+            last.due = due2.value ? due2.value : false;
+            last.proj = proj2.value ? proj2.value : false;
+
+            console.log(last);
+            console.log(list);
         } else {
             // Throw error in placeholder when title is empty
-            title.setAttribute('placeholder', 'TITLE REQUIRED!');
-            if (!title.classList.contains('error')) {
-                title.classList.add('error');
+            ttl2.setAttribute('placeholder', 'TITLE REQUIRED!');
+            if (!ttl2.classList.contains('error')) {
+                ttl2.classList.add('error');
             }
         }
     });
