@@ -446,7 +446,8 @@ textarea {
     width: 100%;
 }
 
-.input-desc {
+.input-desc,
+.edit-desc {
     font-size: 0.8em;
 }
 
@@ -478,7 +479,8 @@ input[type='date'] {
     font-size: 1em;
 }
 
-.form-cont button {
+.form-cont button,
+.edit-cover button {
     align-self: center;
     height: 35px;
     background: var(--color);
@@ -622,8 +624,8 @@ input[type='date'] {
     align-items: center;
 }
 
-.edit-cover > div > form {
-    margin-top: -15px;
+.edit-cover > div {
+    max-width: 600px;
 }
 
 .full:last-of-type {
@@ -631,9 +633,10 @@ input[type='date'] {
 }
 
 .edit-cover > div > form {
+    margin-top: -15px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
 }
 
 .edit-proj {
