@@ -1,5 +1,5 @@
 import './events';
-import GetForm from './form';
+import { GetForm, Projects } from './form';
 import Display from './display';
 import Events from './task-evnt';
 import './style.css';
@@ -19,6 +19,7 @@ submit.addEventListener('click', () => {
 
     // Check if title input is given
     if (title.value !== '') {
+        const Projs = Projects(list);
         title.classList.remove('error');
         title.setAttribute('placeholder', 'Title');
         newtask.parentNode.removeAttribute('style');
@@ -27,6 +28,7 @@ submit.addEventListener('click', () => {
         GetForm(list);
         Display(list);
         Events(list);
+        console.log(Projs.check());
     } else {
         // Throw error in placeholder when title is empty
         title.setAttribute('placeholder', 'TITLE REQUIRED!');

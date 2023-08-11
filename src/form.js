@@ -1,4 +1,4 @@
-export default function GetForm(tasks) {
+export function GetForm(tasks) {
     const title = document.querySelector('.input-ttl');
     const ttl = title.value;
     let desc = document.querySelector('.input-desc');
@@ -22,4 +22,17 @@ export default function GetForm(tasks) {
     if (rmv2) rmv2.checked = false;
     rmv3.value = '';
     rmv4.value = '';
+}
+
+export function Projects(list) {
+    const projs = document.querySelectorAll('.projects > li');
+    const allProj = [];
+    const check = () => {
+        projs.forEach((proj) => {
+            allProj.push(proj.textContent);
+        });
+        return allProj.includes(list[list.length - 1].proj);
+    };
+    // console.log(allProj);
+    return { check };
 }
