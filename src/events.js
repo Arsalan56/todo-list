@@ -48,23 +48,9 @@ export default (() => {
     BarCheck();
     window.addEventListener('resize', BarCheck);
 
-    menu.addEventListener('click', () => {
-        sidebar.classList.toggle('sb-active');
-        if (window.innerWidth >= 900) {
-            if (!sidebar.classList.contains('sb-active')) {
-                cont.style.width = '100%';
-            } else if (sidebar.classList.contains('sb-active')) {
-                cont.removeAttribute('style');
-            }
-        }
-    });
-    newtask.addEventListener('click', () => {
-        newtask.parentNode.style.visibility = 'hidden';
-        form.classList.toggle('visible');
-    });
-    exit.addEventListener('click', () => {
+    const reset = () => {
         newtask.parentNode.removeAttribute('style');
-        form.classList.toggle('visible');
+        form.classList.remove('visible');
         title.classList.remove('error');
         title.setAttribute('placeholder', 'Title');
 
@@ -78,5 +64,23 @@ export default (() => {
         if (rmv2) rmv2.checked = false;
         rmv3.value = '';
         rmv4.value = '';
+    };
+
+    menu.addEventListener('click', () => {
+        sidebar.classList.toggle('sb-active');
+        if (window.innerWidth >= 900) {
+            if (!sidebar.classList.contains('sb-active')) {
+                cont.style.width = '100%';
+            } else if (sidebar.classList.contains('sb-active')) {
+                cont.removeAttribute('style');
+            }
+        }
+        reset();
     });
+
+    newtask.addEventListener('click', (e) => {
+        newtask.parentNode.style.visibility = 'hidden';
+        form.classList.toggle('visible');
+    });
+    exit.addEventListener('click', reset);
 })();
