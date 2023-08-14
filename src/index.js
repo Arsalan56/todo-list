@@ -28,7 +28,9 @@ submit.addEventListener('click', () => {
         GetForm(list);
         Display(list);
         Events(list);
-        console.log(Projs.check());
+        if (Projs.check()) {
+            Projs.create();
+        }
     } else {
         // Throw error in placeholder when title is empty
         title.setAttribute('placeholder', 'TITLE REQUIRED!');

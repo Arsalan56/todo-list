@@ -31,7 +31,11 @@ export function Projects(list) {
         projs.forEach((proj) => {
             allProj.push(proj.textContent);
         });
-        return allProj.includes(list[list.length - 1].proj);
+        return !allProj.includes(list[list.length - 1].proj);
+    };
+
+    const create = () => {
+        const cont = document.querySelector('.projects');
     };
     // console.log(allProj);
     return { check };

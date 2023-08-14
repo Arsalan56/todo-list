@@ -220,7 +220,7 @@ a {
     cursor: pointer;
 }
 
-.sidebar p:first-of-type {
+.sidebar > p:first-of-type {
     font-size: 1.1em;
     font-weight: 600;
     width: min-content;
@@ -641,4 +641,16 @@ input[type='date'] {
 
 .edit-proj {
     border-bottom: 2px solid var(--color);
+}
+
+.projects li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.projects img {
+    height: 30px;
+    width: 30px;
 }
