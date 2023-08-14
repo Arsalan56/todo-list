@@ -34,10 +34,6 @@ export default (() => {
                 sidebar.classList.toggle('sb-active');
                 MenuAnimation();
             }
-            lis.forEach(
-                // eslint-disable-next-line no-return-assign
-                (li) => (li.style['justify-content'] = 'center')
-            );
             lis.forEach((li) => {
                 li.style['margin-left'] = '0px';
             });

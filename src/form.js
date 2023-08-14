@@ -35,8 +35,21 @@ export function Projects(list) {
     };
 
     const create = () => {
-        const cont = document.querySelector('.projects');
+        // console.log(list[list.length - 1].proj);
+        if (list[list.length - 1].proj) {
+            const cont = document.querySelector('.projects');
+            const project = document.createElement('li');
+            const projttl = document.createElement('p');
+            const projrmv = document.createElement('img');
+
+            projttl.textContent = list[list.length - 1].proj;
+            projrmv.setAttribute('src', '9e963c8ceba7ebf6ced7.svg');
+            projrmv.setAttribute('alt', 'delete project');
+            cont.appendChild(project);
+            project.appendChild(projttl);
+            project.appendChild(projrmv);
+        }
     };
     // console.log(allProj);
-    return { check };
+    return { check, create };
 }
