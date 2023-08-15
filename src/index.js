@@ -1,7 +1,7 @@
 import './events';
 import { GetForm, Projects } from './form';
 import Display from './display';
-import Events from './task-evnt';
+import { Events, Cover } from './task-evnt';
 import './style.css';
 import './add.svg';
 import './github-icon.svg';
@@ -10,13 +10,13 @@ import './close-white.svg';
 import './edit.svg';
 
 const list = [];
+Cover([list]);
 
 const submit = document.querySelector('.form-cont button');
 submit.addEventListener('click', () => {
     const title = document.querySelector('.input-ttl');
     const newtask = document.querySelector('.newtask > button');
     const form = document.querySelector('.form-cont');
-
     // Check if title input is given
     if (title.value !== '') {
         const Projs = Projects(list);
@@ -28,9 +28,8 @@ submit.addEventListener('click', () => {
         GetForm(list);
         Display(list);
         Events(list);
-        if (Projs.check()) {
-            Projs.create();
-        }
+
+        if (Projs.check()) Projs.create();
     } else {
         // Throw error in placeholder when title is empty
         title.setAttribute('placeholder', 'TITLE REQUIRED!');

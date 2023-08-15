@@ -19,7 +19,6 @@ export default function Display(list) {
     }
     item.setAttribute('class', 'item');
     del.setAttribute('src', '9e963c8ceba7ebf6ced7.svg');
-    del.setAttribute('data', list.length - 1);
     cb.setAttribute('type', 'checkbox');
     cb.classList.add('cb');
     edit.setAttribute('src', 'dd6093dd83b2b6ed2da6.svg');
