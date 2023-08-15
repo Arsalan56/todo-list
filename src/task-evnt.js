@@ -4,7 +4,6 @@ export function Events(list) {
     const index = list.length - 1;
     const last = list[index];
     const del = document.querySelectorAll(`.item`)[index].lastChild;
-    console.log(del);
     const cont = document.querySelector('.cont');
     const close = document.querySelector('.dt-close');
     const cover = document.querySelector('.cover');
@@ -28,35 +27,38 @@ export function Events(list) {
     const proj2 = document.querySelector('.edit-proj');
     // const screenttl = document.querySelectorAll('.item > p')[index];
     // const screendate = document.querySelectorAll('.item > div > p')[index];
+    const allItems = document.querySelectorAll('.item');
+    const newList = [];
+    for (let i = 0; i < allItems.length; i++) {
+        newList.push(allItems[i]);
+    }
+    const ind = newList.indexOf(cbcont);
+    const item = list[ind];
 
     del.addEventListener('click', (e) => {
-        const allItems = document.querySelectorAll('.item');
-        const newList = [];
-        for (let i = 0; i < allItems.length; i++) {
-            newList.push(allItems[i]);
-        }
-        cont.removeChild(del.parentNode);
-        list.splice(newList.indexOf(del.parentNode), 1);
+        cont.removeChild(cbcont);
+        list.splice(newList.indexOf(cbcont), 1);
         e.stopPropagation();
     });
+
     // Make checkbox clearly show a task is completed
     checkbox.addEventListener('click', (e) => {
         cbcont.classList.toggle('done');
         e.stopPropagation();
     });
-    const item = del.parentNode;
-    item.addEventListener('click', () => {
-        title.textContent = last.ttl;
-        desc.textContent = last.desc || 'No Description';
-        prio.textContent = last.due ? `Priority: ${last.prio}` : 'No Priority';
-        if (last.due) {
-            const dates = last.due.split('-');
+
+    cbcont.addEventListener('click', () => {
+        title.textContent = item.ttl;
+        desc.textContent = item.desc || 'No Description';
+        prio.textContent = item.prio ? `Priority: ${item.prio}` : 'No Priority';
+        if (item.due) {
+            const dates = item.due.split('-');
             due.textContent = `Due: ${dates[1]}/${dates[2]}/${dates[0]}`;
         } else {
             due.textContent = 'No Due Date';
         }
 
-        proj.textContent = last.proj ? `Project: ${last.proj}` : 'No Project';
+        proj.textContent = item.proj ? `Project: ${item.proj}` : 'No Project';
 
         cover.style.visibility = 'visible';
     });
@@ -75,12 +77,11 @@ export function Events(list) {
     edit.addEventListener('click', (e) => {
         edtcover.style.visibility = 'visible';
         e.stopPropagation();
-        ttl2.value = last.ttl;
-
-        desc2.value = !last.desc ? '' : last.desc;
-        prio2.value = !last.prio ? '' : last.prio;
+        ttl2.value = item.ttl;
+        desc2.value = !item.desc ? '' : item.desc;
+        prio2.value = !item.prio ? '' : item.prio;
         prio2.forEach((pr) => {
-            if (pr.value === last.prio) {
+            if (pr.value === item.prio) {
                 // eslint-disable-next-line no-param-reassign
                 pr.checked = true;
             }
@@ -90,6 +91,7 @@ export function Events(list) {
     });
 }
 
+// Fix here
 export function Cover(list) {
     const Projs = Projects(list);
     const edtcont = document.querySelector('.edit-cover > div');
@@ -120,9 +122,6 @@ export function Cover(list) {
     });
 
     edtbtn.addEventListener('click', () => {
-        console.log(list);
-        const index = list.length - 1;
-        const last = list[index];
         const screenttl = document.querySelectorAll('.item > p')[index];
         const screendate = document.querySelectorAll('.item > div > p')[index];
 
