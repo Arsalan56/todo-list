@@ -18,6 +18,7 @@ export default function Display(list) {
         due.textContent = 'No Due';
     }
     item.setAttribute('class', 'item');
+    item.setAttribute('data', list.length - 1);
     del.setAttribute('src', '9e963c8ceba7ebf6ced7.svg');
     cb.setAttribute('type', 'checkbox');
     cb.classList.add('cb');

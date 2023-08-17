@@ -1,7 +1,7 @@
 import './events';
 import { GetForm, Projects } from './form';
 import Display from './display';
-import { Events, Cover } from './task-evnt';
+import Events from './task-event';
 import './style.css';
 import './add.svg';
 import './github-icon.svg';
@@ -10,7 +10,6 @@ import './close-white.svg';
 import './edit.svg';
 
 const list = [];
-Cover([list]);
 
 const submit = document.querySelector('.form-cont button');
 submit.addEventListener('click', () => {

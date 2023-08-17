@@ -2,7 +2,6 @@ import { Projects } from './form';
 
 export function Events(list) {
     const index = list.length - 1;
-    const last = list[index];
     const del = document.querySelectorAll(`.item`)[index].lastChild;
     const cont = document.querySelector('.cont');
     const close = document.querySelector('.dt-close');
@@ -25,22 +24,23 @@ export function Events(list) {
     const prio2 = document.querySelectorAll('.edit-prio');
     const due2 = document.querySelector('.edit-due');
     const proj2 = document.querySelector('.edit-proj');
-    // const screenttl = document.querySelectorAll('.item > p')[index];
-    // const screendate = document.querySelectorAll('.item > div > p')[index];
-    const allItems = document.querySelectorAll('.item');
-    const newList = [];
-    for (let i = 0; i < allItems.length; i++) {
-        newList.push(allItems[i]);
-    }
-    const ind = newList.indexOf(cbcont);
-    const item = list[ind];
+    // const allItems = document.querySelectorAll('.item');
+    // const newList = [];
+    // for (let i = 0; i < allItems.length; i++) {
+    //     newList.push(allItems[i]);
+    // }
+    // const ind = newList.indexOf(cbcont);
+    // const item = list[ind];
 
     del.addEventListener('click', (e) => {
-        cont.removeChild(cbcont);
+        console.log(cont);
+        console.log(del.parentNode);
+        cont.removeChild(del.parentNode);
         list.splice(newList.indexOf(cbcont), 1);
         e.stopPropagation();
     });
 
+    const getInd = () => ind;
     // Make checkbox clearly show a task is completed
     checkbox.addEventListener('click', (e) => {
         cbcont.classList.toggle('done');
@@ -75,6 +75,14 @@ export function Events(list) {
     });
 
     edit.addEventListener('click', (e) => {
+        const allItems = document.querySelectorAll('.item');
+        const newList = [];
+        for (let i = 0; i < allItems.length; i++) {
+            newList.push(allItems[i]);
+        }
+        const ind = newList.indexOf(cbcont);
+        const item = list[ind];
+
         edtcover.style.visibility = 'visible';
         e.stopPropagation();
         ttl2.value = item.ttl;
@@ -86,12 +94,13 @@ export function Events(list) {
                 pr.checked = true;
             }
         });
-        due2.value = !last.due ? '' : last.due;
-        proj2.value = !last.proj ? '' : last.proj;
+        due2.value = !item.due ? '' : item.due;
+        proj2.value = !item.proj ? '' : item.proj;
     });
+
+    return { getInd };
 }
 
-// Fix here
 export function Cover(list) {
     const Projs = Projects(list);
     const edtcont = document.querySelector('.edit-cover > div');
@@ -122,37 +131,40 @@ export function Cover(list) {
     });
 
     edtbtn.addEventListener('click', () => {
+        const index = Events(list).getInd();
+        console.log(index);
         const screenttl = document.querySelectorAll('.item > p')[index];
         const screendate = document.querySelectorAll('.item > div > p')[index];
+        console.log(screenttl);
 
-        if (ttl2.value !== '') {
-            ttl2.classList.remove('error');
-            ttl2.setAttribute('placeholder', 'Title');
-            edtcover.style.visibility = 'hidden';
-            last.ttl = ttl2.value;
-            last.desc = desc2.value ? desc2.value : false;
-            const checkedprio =
-                document.querySelector('.edit-prio:checked') || false;
-            last.prio = checkedprio.value || false;
-            last.due = due2.value ? due2.value : false;
-            last.proj = proj2.value ? proj2.value : false;
+        // if (ttl2.value !== '') {
+        //     ttl2.classList.remove('error');
+        //     ttl2.setAttribute('placeholder', 'Title');
+        //     edtcover.style.visibility = 'hidden';
+        //     last.ttl = ttl2.value;
+        //     last.desc = desc2.value ? desc2.value : false;
+        //     const checkedprio =
+        //         document.querySelector('.edit-prio:checked') || false;
+        //     last.prio = checkedprio.value || false;
+        //     last.due = due2.value ? due2.value : false;
+        //     last.proj = proj2.value ? proj2.value : false;
 
-            screenttl.textContent = last.ttl;
-            if (last.due) {
-                const dates = last.due.split('-');
-                screendate.textContent = `${dates[1]}/${dates[2]}/${dates[0]}`;
-            } else {
-                due.textContent = 'No Due';
-            }
-            if (Projs.check()) {
-                Projs.create();
-            }
-        } else {
-            // Throw error in placeholder when title is empty
-            ttl2.setAttribute('placeholder', 'TITLE REQUIRED!');
-            if (!ttl2.classList.contains('error')) {
-                ttl2.classList.add('error');
-            }
-        }
+        //     screenttl.textContent = last.ttl;
+        //     if (last.due) {
+        //         const dates = last.due.split('-');
+        //         screendate.textContent = `${dates[1]}/${dates[2]}/${dates[0]}`;
+        //     } else {
+        //         due.textContent = 'No Due';
+        //     }
+        //     if (Projs.check()) {
+        //         Projs.create();
+        //     }
+        // } else {
+        //     // Throw error in placeholder when title is empty
+        //     ttl2.setAttribute('placeholder', 'TITLE REQUIRED!');
+        //     if (!ttl2.classList.contains('error')) {
+        //         ttl2.classList.add('error');
+        //     }
+        // }
     });
 }
