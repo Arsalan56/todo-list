@@ -1,7 +1,7 @@
 import './events';
 import { GetForm, Projects } from './form';
 import Display from './display';
-import Events from './task-event';
+import { Events, TaskInfo } from './task-event';
 import './style.css';
 import './add.svg';
 import './github-icon.svg';
@@ -11,6 +11,7 @@ import './edit.svg';
 
 const list = [];
 
+TaskInfo();
 const submit = document.querySelector('.form-cont button');
 submit.addEventListener('click', () => {
     const title = document.querySelector('.input-ttl');

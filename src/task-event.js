@@ -1,4 +1,4 @@
-export default function Events(list) {
+export function Events(list) {
     const index = list.length - 1;
     const del = document.querySelectorAll(`.item`)[index].lastChild;
     const cont = document.querySelector('.cont');
@@ -10,8 +10,13 @@ export default function Events(list) {
     const proj = document.querySelector('.dt-proj');
     const cover = document.querySelector('.cover');
     const checkbox = document.querySelectorAll('.cb')[index];
-    const dtls = document.querySelector('.info-cont');
-    const close = document.querySelector('.dt-close');
+    const edit = document.querySelectorAll('.edit')[index];
+    const edtcover = document.querySelector('.edit-cover');
+    const ttl2 = document.querySelector('.edit-ttl');
+    const desc2 = document.querySelector('.edit-desc');
+    const prio2 = document.querySelectorAll('.edit-prio');
+    const due2 = document.querySelector('.edit-due');
+    const proj2 = document.querySelector('.edit-proj');
 
     // Delete tasks and re-organize data attribute
     del.addEventListener('click', (e) => {
@@ -48,6 +53,28 @@ export default function Events(list) {
         cover.style.visibility = 'visible';
     });
 
+    edit.addEventListener('click', (e) => {
+        const ind = list[del.parentNode.getAttribute('data')];
+        edtcover.style.visibility = 'visible';
+        ttl2.value = ind.ttl;
+        desc2.value = !ind.desc ? '' : ind.desc;
+        due2.value = !ind.due ? '' : ind.due;
+        proj2.value = !ind.proj ? '' : ind.proj;
+        prio2.forEach((pr) => {
+            if (pr.value === ind.prio) {
+                // eslint-disable-next-line no-param-reassign
+                pr.checked = true;
+            }
+        });
+        e.stopPropagation();
+    });
+}
+
+export function TaskInfo() {
+    const cover = document.querySelector('.cover');
+    const dtls = document.querySelector('.info-cont');
+    const close = document.querySelector('.dt-close');
+
     // Close task info when x is clicked
     close.addEventListener('click', () => {
         cover.style.visibility = 'hidden';
@@ -56,6 +83,7 @@ export default function Events(list) {
     // Close task info when grey cover is clicked
     cover.addEventListener('click', () => {
         cover.style.visibility = 'hidden';
+        console.log('hi');
     });
 
     // Prevent task info page from closing when the div is clicked
