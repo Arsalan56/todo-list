@@ -40,7 +40,6 @@ export function Events(list) {
         e.stopPropagation();
     });
 
-    const getInd = () => ind;
     // Make checkbox clearly show a task is completed
     checkbox.addEventListener('click', (e) => {
         cbcont.classList.toggle('done');
