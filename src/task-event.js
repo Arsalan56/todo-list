@@ -1,3 +1,7 @@
+const ttl2 = document.querySelector('.edit-ttl');
+const edtcover = document.querySelector('.edit-cover');
+const edtclose = document.querySelector('.edt-close');
+
 export function Events(list) {
     const index = list.length - 1;
     const del = document.querySelectorAll(`.item`)[index].lastChild;
@@ -11,12 +15,12 @@ export function Events(list) {
     const cover = document.querySelector('.cover');
     const checkbox = document.querySelectorAll('.cb')[index];
     const edit = document.querySelectorAll('.edit')[index];
-    const edtcover = document.querySelector('.edit-cover');
-    const ttl2 = document.querySelector('.edit-ttl');
     const desc2 = document.querySelector('.edit-desc');
     const prio2 = document.querySelectorAll('.edit-prio');
     const due2 = document.querySelector('.edit-due');
     const proj2 = document.querySelector('.edit-proj');
+    const ind = list[del.parentNode.getAttribute('data')];
+    const edtbtn = document.querySelector('.edit-cover button');
 
     // Delete tasks and re-organize data attribute
     del.addEventListener('click', (e) => {
@@ -54,7 +58,6 @@ export function Events(list) {
     });
 
     edit.addEventListener('click', (e) => {
-        const ind = list[del.parentNode.getAttribute('data')];
         edtcover.style.visibility = 'visible';
         ttl2.value = ind.ttl;
         desc2.value = !ind.desc ? '' : ind.desc;
@@ -68,12 +71,19 @@ export function Events(list) {
         });
         e.stopPropagation();
     });
+
+    edtbtn.addEventListener('click', () => {
+        if (ttl2.value !== '') {
+            console.log('hi');
+        }
+    });
 }
 
 export function TaskInfo() {
     const cover = document.querySelector('.cover');
     const dtls = document.querySelector('.info-cont');
     const close = document.querySelector('.dt-close');
+    const edtcont = document.querySelector('.edit-cover > div');
 
     // Close task info when x is clicked
     close.addEventListener('click', () => {
@@ -83,11 +93,23 @@ export function TaskInfo() {
     // Close task info when grey cover is clicked
     cover.addEventListener('click', () => {
         cover.style.visibility = 'hidden';
-        console.log('hi');
     });
 
     // Prevent task info page from closing when the div is clicked
     dtls.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+
+    // Close the edit page and set title placeholder to default
+    const Close = () => {
+        ttl2.placeholder = 'Title';
+        ttl2.classList.remove('error');
+        edtcover.style.visibility = 'hidden';
+    };
+
+    edtcover.addEventListener('click', Close);
+    edtclose.addEventListener('click', Close);
+    edtcont.addEventListener('click', (e) => {
         e.stopPropagation();
     });
 }
