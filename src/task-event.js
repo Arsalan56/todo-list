@@ -1,8 +1,20 @@
+/* eslint-disable no-param-reassign */
+import { Projects } from './form';
+
 const ttl2 = document.querySelector('.edit-ttl');
 const edtcover = document.querySelector('.edit-cover');
 const edtclose = document.querySelector('.edt-close');
+let first = false; // variable to prevent multiple edit confirm calls
+let check = 0;
+const Close = () => {
+    ttl2.placeholder = 'Title';
+    ttl2.classList.remove('error');
+    edtcover.style.visibility = 'hidden';
+    first = false;
+};
 
 export function Events(list) {
+    const Projs = Projects(list);
     const index = list.length - 1;
     const del = document.querySelectorAll(`.item`)[index].lastChild;
     const cont = document.querySelector('.cont');
@@ -43,7 +55,6 @@ export function Events(list) {
 
     // Show task information when task is clicked
     del.parentNode.addEventListener('click', () => {
-        const ind = list[del.parentNode.getAttribute('data')];
         title.textContent = ind.ttl;
         desc.textContent = ind.desc || 'No Description';
         prio.textContent = ind.prio ? `Priority: ${ind.prio}` : 'No Priority';
@@ -57,7 +68,10 @@ export function Events(list) {
         cover.style.visibility = 'visible';
     });
 
+    // Pencil button that shows edit page
     edit.addEventListener('click', (e) => {
+        first = true;
+        check = list.indexOf(ind);
         edtcover.style.visibility = 'visible';
         ttl2.value = ind.ttl;
         desc2.value = !ind.desc ? '' : ind.desc;
@@ -65,16 +79,43 @@ export function Events(list) {
         proj2.value = !ind.proj ? '' : ind.proj;
         prio2.forEach((pr) => {
             if (pr.value === ind.prio) {
-                // eslint-disable-next-line no-param-reassign
                 pr.checked = true;
             }
         });
         e.stopPropagation();
     });
 
+    // Edit confirm logic
     edtbtn.addEventListener('click', () => {
-        if (ttl2.value !== '') {
-            console.log('hi');
+        if (ttl2.value !== '' && first) {
+            const screenttl = document.querySelectorAll('.item > p')[check];
+            const screendate =
+                document.querySelectorAll('.item > div > p')[check];
+            Close();
+            // Change list info according to inputted values
+            list[check].ttl = document.querySelector('.edit-ttl').value;
+            list[check].desc = document.querySelector('.edit-desc').value
+                ? document.querySelector('.edit-desc').value
+                : false;
+            list[check].prio =
+                (document.querySelector('.edit-prio:checked') || false).value ||
+                false;
+            list[check].due = document.querySelector('.edit-due').value
+                ? document.querySelector('.edit-due').value
+                : false;
+            list[check].proj = document.querySelector('.edit-proj').value
+                ? document.querySelector('.edit-proj').value
+                : false;
+            screenttl.textContent = document.querySelector('.edit-ttl').value;
+            if (list[check].due) {
+                const dates = list[check].due.split('-');
+                screendate.textContent = `${dates[1]}/${dates[2]}/${dates[0]}`;
+            } else {
+                due.textContent = 'No Due';
+            }
+            if (Projs.check()) {
+                Projs.create();
+            }
         }
     });
 }
@@ -101,11 +142,6 @@ export function TaskInfo() {
     });
 
     // Close the edit page and set title placeholder to default
-    const Close = () => {
-        ttl2.placeholder = 'Title';
-        ttl2.classList.remove('error');
-        edtcover.style.visibility = 'hidden';
-    };
 
     edtcover.addEventListener('click', Close);
     edtclose.addEventListener('click', Close);
