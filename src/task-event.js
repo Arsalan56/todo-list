@@ -116,6 +116,12 @@ export function Events(list) {
             if (Projs.check()) {
                 Projs.create();
             }
+        } else if (ttl2.value === '') {
+            // Throw error in placeholder when title is empty
+            ttl2.setAttribute('placeholder', 'TITLE REQUIRED!');
+            if (!ttl2.classList.contains('error')) {
+                ttl2.classList.add('error');
+            }
         }
     });
 }

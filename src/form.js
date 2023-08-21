@@ -44,17 +44,18 @@ export function Projects(list) {
             projttl.textContent = list[list.length - 1].proj;
             projrmv.setAttribute('src', '9e963c8ceba7ebf6ced7.svg');
             projrmv.setAttribute('alt', 'delete project');
+            cont.appendChild(project);
+            project.appendChild(projttl);
+            project.appendChild(projrmv);
             projrmv.addEventListener('click', () => {
                 for (let i = 0; i < list.length; i++) {
                     if (list[i].proj === projrmv.previousSibling.textContent) {
-                        console.log('no');
+                        // eslint-disable-next-line no-param-reassign
+                        list[i].proj = false;
                     }
                 }
                 cont.removeChild(project);
             });
-            cont.appendChild(project);
-            project.appendChild(projttl);
-            project.appendChild(projrmv);
         }
     };
     return { check, create };
