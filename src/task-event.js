@@ -148,7 +148,6 @@ export function TaskInfo() {
     });
 
     // Close the edit page and set title placeholder to default
-
     edtcover.addEventListener('click', Close);
     edtclose.addEventListener('click', Close);
     edtcont.addEventListener('click', (e) => {
