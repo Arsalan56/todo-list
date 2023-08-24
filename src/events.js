@@ -49,7 +49,9 @@ export default (() => {
     window.addEventListener('resize', BarCheck);
 
     const reset = () => {
-        newtask.parentNode.removeAttribute('style');
+        if (document.querySelector('.header').textContent === 'Home') {
+            newtask.parentNode.removeAttribute('style');
+        }
         form.classList.remove('visible');
         title.classList.remove('error');
         title.setAttribute('placeholder', 'Title');
@@ -78,7 +80,7 @@ export default (() => {
         reset();
     });
 
-    newtask.addEventListener('click', (e) => {
+    newtask.addEventListener('click', () => {
         newtask.parentNode.style.visibility = 'hidden';
         form.classList.toggle('visible');
     });

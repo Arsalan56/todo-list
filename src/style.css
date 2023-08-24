@@ -654,3 +654,9 @@ input[type='date'] {
     height: 30px;
     width: 30px;
 }
+
+.sidebar > ul:first-of-type > li:hover {
+    padding: 0px 10px;
+    color: #4361ee;
+    transition: 0.2s ease-in-out;
+}
