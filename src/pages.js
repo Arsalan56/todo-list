@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { format } from 'date-fns';
+import { format, addDays, parseISO, add } from 'date-fns';
 
 export default function Page(list) {
     const homePage = document.querySelector('.home');
@@ -9,14 +8,15 @@ export default function Page(list) {
     const newTask = document.querySelector('.newtask');
     const form = document.querySelector('.form-cont');
     const title = document.querySelector('.input-ttl');
+    const today = format(new Date(), 'MM/dd/yyyy');
 
     // Includes basic resetting code when each list item is clicked
     const Reset = () => {
         form.classList.remove('visible');
         title.classList.remove('error');
         title.setAttribute('placeholder', 'Title');
-
-        // Reset inputs when done
+        newTask.style.visibility = 'hidden';
+        newTask.style.position = 'absolute';
         const rmv1 = document.querySelector('.input-desc');
         const rmv2 = document.querySelector('.prio:checked');
         const rmv3 = document.querySelector('.due-input');
@@ -41,11 +41,9 @@ export default function Page(list) {
             item.removeAttribute('style');
         });
     });
+
     todayPage.addEventListener('click', () => {
         Reset();
-        newTask.style.visibility = 'hidden';
-        newTask.style.position = 'absolute';
-        const today = format(new Date(), 'MM/dd/yyyy');
         list.forEach((item) => {
             const div = document.querySelectorAll('.item')[list.indexOf(item)];
             if (!item.due) {
@@ -62,9 +60,42 @@ export default function Page(list) {
                 ) {
                     div.style.visibility = 'hidden';
                     div.style.position = 'absolute';
+                } else {
+                    div.removeAttribute('style');
                 }
             }
         });
         header.textContent = 'Today';
+    });
+
+    weekPage.addEventListener('click', () => {
+        Reset();
+        header.textContent = 'Week';
+
+        const week = [];
+        // Get the dates for the next 7 days and add it to the week list
+        for (let i = 0; i < 7; i++) {
+            week.push(format(addDays(new Date(), i), 'MM/dd/yyyy'));
+        }
+
+        list.forEach((item) => {
+            const div = document.querySelectorAll('.item')[list.indexOf(item)];
+            if (!item.due) {
+                div.style.visibility = 'hidden';
+                div.style.position = 'absolute';
+            } else {
+                const date = item.due.split('-');
+                const dt = format(
+                    new Date(`${date[1]}-${date[2]}-${date[0]}`),
+                    'MM/dd/yyyy'
+                );
+                if (week.includes(dt)) {
+                    div.removeAttribute('style');
+                } else {
+                    div.style.visibility = 'hidden';
+                    div.style.position = 'absolute';
+                }
+            }
+        });
     });
 }
