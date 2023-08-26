@@ -47,7 +47,7 @@ export function Projects(list) {
             cont.appendChild(project);
             project.appendChild(projttl);
             project.appendChild(projrmv);
-            projrmv.addEventListener('click', () => {
+            projrmv.addEventListener('click', (e) => {
                 for (let i = 0; i < list.length; i++) {
                     if (list[i].proj === projrmv.previousSibling.textContent) {
                         // eslint-disable-next-line no-param-reassign
@@ -55,6 +55,50 @@ export function Projects(list) {
                     }
                 }
                 cont.removeChild(project);
+                e.stopPropagation();
+            });
+            project.addEventListener('click', () => {
+                const header = document.querySelector('.header');
+                const newTask = document.querySelector('.newtask');
+                const form = document.querySelector('.form-cont');
+                const title = document.querySelector('.input-ttl');
+
+                // Reset and hide side bar along with new task page
+                header.textContent = projttl.textContent;
+                form.classList.remove('visible');
+                title.classList.remove('error');
+                title.setAttribute('placeholder', 'Title');
+                newTask.style.visibility = 'hidden';
+                newTask.style.position = 'absolute';
+                const rmv1 = document.querySelector('.input-desc');
+                const rmv2 = document.querySelector('.prio:checked');
+                const rmv3 = document.querySelector('.due-input');
+                const rmv4 = document.querySelector('.proj');
+                title.value = '';
+                rmv1.value = '';
+                if (rmv2) rmv2.checked = false;
+                rmv3.value = '';
+                rmv4.value = '';
+                if (window.innerWidth < 900) {
+                    document
+                        .querySelector('.sidebar')
+                        .classList.remove('sb-active');
+                    document.querySelector('.menu').classList.remove('opened');
+                }
+
+                // Filter
+
+                list.forEach((item) => {
+                    const div =
+                        document.querySelectorAll('.item')[list.indexOf(item)];
+
+                    if (item.proj === projttl.textContent) {
+                        div.removeAttribute('style');
+                    } else {
+                        div.style.visibility = 'hidden';
+                        div.style.position = 'absolute';
+                    }
+                });
             });
         }
     };

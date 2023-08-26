@@ -1,4 +1,4 @@
-import { format, addDays, parseISO, add } from 'date-fns';
+import { format, addDays } from 'date-fns';
 
 export default function Page(list) {
     const homePage = document.querySelector('.home');
