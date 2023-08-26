@@ -1,4 +1,4 @@
-# webpack-template
+# To-do List
 
 A user-friendly to-do app for managing tasks.
 
