@@ -56,6 +56,7 @@ export function Projects(list) {
                 }
                 cont.removeChild(project);
                 e.stopPropagation();
+                document.querySelector('.home').click();
             });
             project.addEventListener('click', () => {
                 const header = document.querySelector('.header');

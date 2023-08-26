@@ -1,18 +1,22 @@
 # webpack-template
 
-Simple template with webpack and eslint/prettier set up
+A user-friendly to-do app for managing tasks.
 
 This project was made as a part of [The Odin Project](https://www.theodinproject.com/)'s full-stack JS curriculum.
 
-Live Preview: https://arsalan56.github.io/site/
+Live Preview: https://arsalan56.github.io/todo-list/
 
 ## What I learned
 
--   Stuff
+-   Separating classes by module
+-   Using the date-fns library to manage dates
+-   Making things appear differently based on screen size
 
 ### Skills displayed
 
--   Stuff
+-   Usability of date managment
+-   Simple page navigation
+-   Creation of a side navigation bar that can be toggled on/off
 
 ### Languages used
 
